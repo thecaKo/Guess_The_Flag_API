@@ -6,7 +6,7 @@ export const createUserSchema = {
   description: "Create a new user.",
   body: zodToJsonSchema(
     z.object({
-      name: z.string(),
+      username: z.string(),
       email: z.string(),
       password: z.string(),
     }),

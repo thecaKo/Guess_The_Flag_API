@@ -1,7 +1,6 @@
-version: "3"
 
 services:
-  tabnews-pg:
+  guess-pg:
     image: bitnami/postgresql
     ports:
       - 5432:5432

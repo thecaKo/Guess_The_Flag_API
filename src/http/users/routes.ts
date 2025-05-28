@@ -4,5 +4,5 @@ import { createUserSchema } from "./user-schema"
 
 
 export async function usersRoutes(app: FastifyInstance) {
-  app.post("/users", { schema: createUserSchema }, register);
+  app.post("/register", { schema: createUserSchema }, register);
 }
