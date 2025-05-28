@@ -20,7 +20,7 @@ export async function fetchProfile(request: FastifyRequest, reply: FastifyReply)
 
     const profile = request.user.username;
 
-    const user = await fetchMeProfileService.execute({username: profile})
+    const user  = await fetchMeProfileService.execute({username: profile})
 
     return reply.status(200).send(user);
 }

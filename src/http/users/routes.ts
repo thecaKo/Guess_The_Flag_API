@@ -4,6 +4,7 @@ import { createUserSchema, loginUserSchema, logoutUserSchema } from "./user-sche
 import { authenticate } from "./authenticate";
 import { logout } from "./logout";
 import { fetchProfile } from "./fetch-me-profile";
+import { fetchTop10Players } from "./fetch-best-players";
 
 
 export async function usersRoutes(app: FastifyInstance) {
@@ -14,5 +15,7 @@ export async function usersRoutes(app: FastifyInstance) {
   app.get('/logout', { schema: logoutUserSchema }, logout)
 
   app.get('/me', fetchProfile)
+
+  app.get('/ranking', fetchTop10Players)
 
 }

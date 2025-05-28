@@ -5,7 +5,7 @@ import { randomUUID } from "crypto";
 
 export class InMemoryUsersRepository implements UsersRepository {
   public items: User[] = []
-  
+
   async create(data: Prisma.UserCreateInput): Promise<User> {
 
     let finalLastPlayed: Date;
@@ -17,7 +17,6 @@ export class InMemoryUsersRepository implements UsersRepository {
     } else {
       finalLastPlayed = new Date();
     }
-
 
     const user: User = {
       id: randomUUID(),
@@ -57,4 +56,17 @@ export class InMemoryUsersRepository implements UsersRepository {
     return this.items;
   }
 
+  async findManyOrderedByBestScore(limit: number = 10): Promise<User[]> {
+    return this.items
+      .sort((a, b) => b.bestScore - a.bestScore)
+      .slice(0, limit);
+  }
+
+  async save(user: User): Promise<User> {
+    const userIndex = this.items.findIndex(item => item.id === user.id);
+    if (userIndex >= 0) {
+      this.items[userIndex] = user;
+    }
+    return user;
+  }
 }

@@ -5,4 +5,5 @@ export interface UsersRepository {
   findByEmail(email: string) : Promise<User | null>
   findByUsername(username: string) : Promise<User | null>
   fetchAllUser() : Promise<User[]>
+  findManyOrderedByBestScore(limit: number) : Promise< User[]>
 }

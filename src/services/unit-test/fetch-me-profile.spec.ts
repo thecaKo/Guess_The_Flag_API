@@ -20,11 +20,11 @@ describe("Get Profile Service Test", async () => {
       password_hash: "123456",
     });
 
-    const { username } = await sut.execute({
+    const { profile } = await sut.execute({
       username: "cako",
     });
 
-    expect(username.username).toEqual(expect.any(String));
+    expect(profile.username).toEqual(expect.any(String));
   });
 
   it("should not be able to fetch an user profile does not exits", async () => {
