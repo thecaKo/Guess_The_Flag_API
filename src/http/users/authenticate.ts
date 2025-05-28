@@ -16,7 +16,8 @@ export async function authenticate(request: FastifyRequest, reply: FastifyReply)
     const userRepository = new PrismaUsersRepository()
     const authenticateService = new AuthenticateService(userRepository);
 
-    const {user} = await authenticateService.execute({ email, password });
+    const { user } = await authenticateService.execute({ email, password });
+
     const token = await reply.jwtSign({
       sub: user.id,
       username: user.username,

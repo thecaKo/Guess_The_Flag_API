@@ -13,6 +13,17 @@ export class PrismaUsersRepository implements UsersRepository{
 
     return user;
   }
+
+   async findByUsername(username: string): Promise<User | null> {
+    const user = await prisma.user.findFirst({ where: { username: username} });
+   
+    if(!user){
+      return null;
+    }
+    
+    return user;
+  }
+
   async fetchAllUser(): Promise<User[]> {
     const users = await prisma.user.findMany();
 

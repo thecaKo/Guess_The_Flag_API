@@ -34,4 +34,11 @@ export const loginUserSchema = {
   },
 };
 
+export const logoutUserSchema = {
+  tags: ["users"],
+  description: "Remove the token of logged user.",
+  response: {
+    200: z.array(z.object({})),
+  },
+};
 
