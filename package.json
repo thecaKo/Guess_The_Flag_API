@@ -6,7 +6,7 @@
   "scripts": {
     "start:dev": "tsx watch src/server.ts",
     "start": "node dist/server.js",
-    "build": "npx prisma generate && tsup src --out-dir dist --format cjs --clean", // <--- ALTERADO AQUI
+    "build": "npx prisma generate && tsup src --out-dir dist --format cjs --clean",
     "vitest:coverage": "vitest run --coverage",
     "vitest:unit": "vitest --watch"
   },
